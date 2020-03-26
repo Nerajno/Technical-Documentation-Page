@@ -204,6 +204,7 @@
 					Transcript show: (each class name);
 					show: ' '].
 					^x < y </code> 
+
 					<strong>Literals</strong>
 						<p>The following examples illustrate the most common objects which can be written as literal
 							values in
@@ -268,22 +269,25 @@
 							<p><strong>Arrays:</strong></p>
 
 							<code>#(1 2 3 4)</code>
+
 							<p> an array of four integers.
 
 							Many implementations support the following literal syntax for ByteArrays:</p>
 
 							<code>#[1 2 3 4]</code>
+
 							<p>defines a ByteArray of four integers.
 
 							And last but not least, blocks (anonymous function literals)</p>
 
 							<code>[... Some smalltalk code...]</code>
+
 							<p>Blocks are explained in detail further in the text.
 
 							Many Smalltalk dialects implement additional syntaxes for other objects, but the ones above
 							are the essentials supported by all.</p>
 
-							Variable declarations
+							<p>Variable declarations
 							The two kinds of variables commonly used in Smalltalk are instance variables and temporary
 							variables. Other variables and related terminology depend on the particular implementation.
 							For example, VisualWorks has class shared variables and namespace shared variables, while
@@ -292,23 +296,24 @@
 
 							Temporary variable declarations in Smalltalk are variables declared inside a method (see
 							below). They are declared at the top of the method as names separated by spaces and enclosed
-							by vertical bars. For example:
+							by vertical bars. For example:</p>
 
-							| index |
-							declares a temporary variable named index which contains initially the value nil.
+							<code>| index |</code>
+							<p>declares a temporary variable named index which contains initially the value nil.
 
-							Multiple variables may be declared within one set of bars:
+							Multiple variables may be declared within one set of bars: </p>
 
-							| index vowels |
-							declares two variables: index and vowels. All variables are initialized. Variables are
+							<code>| index vowels |</code>
+							<p>declares two variables: index and vowels. All variables are initialized. Variables are
 							initialized to nil except the indexed variables of Strings, which are initialized to the
 							null character or ByteArrays which are initialized to 0.
 
 							Assignment
-							A variable is assigned a value via the ':=' syntax. So:
+							A variable is assigned a value via the ':=' syntax. So:</p>
 
-							vowels := 'aeiou'
-							Assigns the string 'aeiou' to the formerly declared vowels variable. The string is an object
+							<code>vowels := 'aeiou'</code>
+							
+							<p>Assigns the string 'aeiou' to the formerly declared vowels variable. The string is an object
 							(a sequence of characters between single quotes is the syntax for literal strings), created
 							by the compiler at compile time.
 
@@ -325,51 +330,51 @@
 							message dispatch strategy (as contrasted to the asynchronous, multiple dispatch strategy
 							adopted by some other object-oriented languages).
 
-							The following example sends the message 'factorial' to number 42:
+							The following example sends the message 'factorial' to number 42:</p>
 
-							42 factorial
-							In this situation 42 is called the message receiver, while 'factorial' is the message
+							<code>42 factorial </code>
+							<p>In this situation 42 is called the message receiver, while 'factorial' is the message
 							selector. The receiver responds to the message by returning a value (presumably in this case
 							the factorial of 42). Among other things, the result of the message can be assigned to a
-							variable:
+							variable:</p>
 
-							aRatherBigNumber := 42 factorial
-							"factorial" above is what is called a unary message because only one object, the receiver,
-							is involved. Messages can carry additional objects as arguments, as follows:
+							<code>aRatherBigNumber := 42 factorial</code>
+							<p>"factorial" above is what is called a unary message because only one object, the receiver,
+							is involved. Messages can carry additional objects as arguments, as follows:</p>
 
-							2 raisedTo: 4
-							In this expression two objects are involved: 2 as the receiver and 4 as the message
+							<code> raisedTo: 4 </code>
+							<p>In this expression two objects are involved: 2 as the receiver and 4 as the message
 							argument. The message result, or in Smalltalk parlance, the answer is supposed to be 16.
 							Such messages are called keyword messages. A message can have more arguments, using the
-							following syntax:
+							following syntax:</p>
 
-							'hello world' indexOf: $o startingAt: 6
-							which answers the index of character 'o' in the receiver string, starting the search from
+							<code>'hello world' indexOf: $o startingAt: 6</code>
+							<p>which answers the index of character 'o' in the receiver string, starting the search from
 							index 6. The selector of this message is "indexOf:startingAt:", consisting of two pieces, or
 							keywords.
 
 							Such interleaving of keywords and arguments is meant to improve readability of code, since
 							arguments are explained by their preceding keywords. For example, an expression to create a
-							rectangle using a C++ or Java-like syntax might be written as:
+							rectangle using a C++ or Java-like syntax might be written as: </p>
 
-							new Rectangle(100, 200);
-							It's unclear which argument is which. By contrast, in Smalltalk, this code would be written
-							as:
+							<code> Rectangle(100, 200); </code>
+							<p>It's unclear which argument is which. By contrast, in Smalltalk, this code would be written
+							as:</p>
 
-							Rectangle width: 100 height: 200
-							The receiver in this case is "Rectangle", a class, and the answer will be a new instance of
+							<code>Rectangle width: 100 height: 200</code>
+							<p>The receiver in this case is "Rectangle", a class, and the answer will be a new instance of
 							the class with the specified width and height.
 
 							Finally, most of the special (non-alphabetic) characters can be used as what are called
 							binary messages. These allow mathematical and logical operators to be written in their
-							traditional form:
+							traditional form: </p>
 
-							3 + 4
-							which sends the message "+" to the receiver 3 with 4 passed as the argument (the answer of
-							which will be 7). Similarly,
+							<code>3 + 4</code>
+							<p>which sends the message "+" to the receiver 3 with 4 passed as the argument (the answer of
+							which will be 7). Similarly,</p>
 
-							3 > 4
-							is the message ">" sent to 3 with argument 4 (the answer of which will be false).
+							<code>3 > 4</code>
+							<p>is the message ">" sent to 3 with argument 4 (the answer of which will be false).
 
 							Notice, that the Smalltalk-80 language itself does not imply the meaning of those operators.
 							The outcome of the above is only defined by how the receiver of the message (in this case a
@@ -382,48 +387,58 @@
 							Expressions
 							An expression can include multiple message sends. In this case expressions are parsed
 							according to a simple order of precedence. Unary messages have the highest precedence,
-							followed by binary messages, followed by keyword messages. For example:
+							followed by binary messages, followed by keyword messages. For example:</p>
 
-							3 factorial + 4 factorial between: 10 and: 100
-							is evaluated as follows:
+							<code>3 factorial + 4 factorial between: 10 and: 100</code>
 
-							3 receives the message "factorial" and answers 6
-							4 receives the message "factorial" and answers 24
-							6 receives the message "+" with 24 as the argument and answers 30
-							30 receives the message "between:and:" with 10 and 100 as arguments and answers true
-							The answer of the last message sent is the result of the entire expression.
+							<p> evaluated as follows:</p>
+							<ul>
+							<li>3 receives the message "factorial" and answers 6</li> 
+							<li>4 receives the message "factorial" and answers 24</li>
+							<li>6 receives the message "+" with 24 as the argument and answers 30</li>
+							<li> receives the message "between:and:" with 10 and 100 as arguments and answers true</li>
+							</ul>
 
-							Parentheses can alter the order of evaluation when needed. For example,
+							<p> answer of the last message sent is the result of the entire expression.
 
-							(3 factorial + 4) factorial between: 10 and: 100
-							will change the meaning so that the expression first computes "3 factorial + 4" yielding 10.
+							Parentheses can alter the order of evaluation when needed. For example,</p>
+
+							<code>(3 factorial + 4) factorial between: 10 and: 100 </code>
+
+							<p>will change the meaning so that the expression first computes "3 factorial + 4" yielding 10.
 							That 10 then receives the second "factorial" message, yielding 3628800. 3628800 then
 							receives "between:and:", answering false.
 
 							Note that because the meaning of binary messages is not hardwired into Smalltalk-80 syntax,
 							all of them are considered to have equal precedence and are evaluated simply from left to
 							right. Because of this, the meaning of Smalltalk expressions using binary messages can be
-							different from their "traditional" interpretation:
+							different from their "traditional" interpretation:</p>
 
-							3 + 4 * 5
-							is evaluated as "(3 + 4) * 5", producing 35. To obtain the expected answer of 23,
-							parentheses must be used to explicitly define the order of operations:
+							<code>3 + 4 * 5 </code>
 
-							3 + (4 * 5)
-							Unary messages can be chained by writing them one after another:
+							<p>is evaluated as "(3 + 4) * 5", producing 35. To obtain the expected answer of 23,
+							parentheses must be used to explicitly define the order of operations: </p>
 
-							3 factorial factorial log
-							which sends "factorial" to 3, then "factorial" to the result (6), then "log" to the result
+							<code>3 + (4 * 5)</code>
+							<p> messages can be chained by writing them one after another:</p>
+
+							<code>3 factorial factorial log</code>
+
+							<p>which sends "factorial" to 3, then "factorial" to the result (6), then "log" to the result
 							(720), producing the result 2.85733.
 
 							A series of expressions can be written as in the following (hypothetical) example, each
 							separated by a period. This example first creates a new instance of class Window, stores it
-							in a variable, and then sends two messages to it.
-
-							| window |
-							window := Window new.
-							window label: 'Hello'.
-							window open
+							in a variable, and then sends two messages to it.</p>
+							<code>
+							<ul>
+								<li>| window |</li>
+								<li>window := Window new.</li>
+								<li>window label: 'Hello'.</li>
+								<li>window open</li>
+							</ul>
+						</code>
+						
 							If a series of messages are sent to the same receiver as in the example above, they can also
 							be written as a cascade with individual messages separated by semicolons:
 
