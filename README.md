@@ -7,7 +7,7 @@ Created to fullfill the requirements freeCodeCamp Responsive Web Cert.
 ### Built with :
 * BootStrap 
 * FontAwesome
-* Reaserch
+* Research via Wikipedia
 
 ### Hosted on : 
  
