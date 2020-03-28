@@ -439,42 +439,51 @@
 							</ul>
 						</code>
 						
-							If a series of messages are sent to the same receiver as in the example above, they can also
-							be written as a cascade with individual messages separated by semicolons:
+						<p>	If a series of messages are sent to the same receiver as in the example above, they can also
+							be written as a cascade with individual messages separated by semicolons: </p>
 
-							Window new
+						<code>Window new
 							label: 'Hello';
 							open
-							This rewrite of the earlier example as a single expression avoids the need to store the new
+						</code>	
+
+						<p>	This rewrite of the earlier example as a single expression avoids the need to store the new
 							window in a temporary variable. According to the usual precedence rules, the unary message
-							"new" is sent first, and then "label:" and "open" are sent to the answer of "new".
+							"new" is sent first, and then "label:" and "open" are sent to the answer of "new".</p>
 
-							Code blocks
+						<p>Code blocks
 							A block of code (an anonymous function) can be expressed as a literal value (which is an
-							object, since all values are objects). This is achieved with square brackets:
+							object, since all values are objects). This is achieved with square brackets:</p>
 
-							[ :params | <message-expressions> ]
-								Where :params is the list of parameters the code can take. This means that the Smalltalk
-								code:
+						<code>	code[ :params | <message-expressions> ]</code>
 
-								[:x | x + 1]
-								can be understood as:
+						<p>Where :params is the list of parameters the code can take. This means that the Smalltalk
+								code: </p>
 
-								{\displaystyle f}f : {\displaystyle f(x)=x+1}f(x)=x+1
-								or expressed in lambda terms as:
+							<code>[:x | x + 1]</code>
+				
+						<p>an be understood as: </p>
 
-								{\displaystyle \lambda x}\lambda x : {\displaystyle x+1}x+1
-								and
+							<code>{\displaystyle f}f : {\displaystyle f(x)=x+1}f(x)=x+1</code>
+								
+						<p>or expressed in lambda terms as: </p>
 
-								[:x | x + 1] value: 3
-								can be evaluated as
+							<code>{\displaystyle \lambda x}\lambda x : {\displaystyle x+1}x+1</code>
+								
+						<p>and </p>
 
-								{\displaystyle f(3)=3+1}f(3)=3+1
-								Or in lambda terms as:
+							<code>[:x | x + 1] value: 3</code>
+						
+						<p>can be evaluated as </p>
 
-								{\displaystyle (\lambda x:x+1)3_{\beta }\rightarrow 4}(\lambda x:x+1)3_{\beta
-								}\rightarrow 4
-								The resulting block object can form a closure: it can access the variables of its
+							<code>{\displaystyle f(3)=3+1}f(3)=3+1</code>
+
+						<p> Or in lambda terms as: </p>
+
+							<code>{\displaystyle (\lambda x:x+1)3_{\beta }\rightarrow 4}(\lambda x:x+1)3_{\beta
+								}\rightarrow 4</code>
+
+						<p>The resulting block object can form a closure: it can access the variables of its
 								enclosing lexical scopes at any time. Blocks are first-class objects.
 
 								Blocks can be executed by sending them the value message (compound variations exist in
@@ -487,11 +496,10 @@
 								sometimes in a single line. But more importantly blocks allow control structure to be
 								expressed using messages and polymorphism, since blocks defer computation and
 								polymorphism can be used to select alternatives. So if-then-else in Smalltalk is written
-								and implemented as
+							and implemented as </p>
 
-								<code> expr ifTrue: [statements to evaluate if expr] ifFalse: [statements to evaluate if not
-								expr]
-
+							<code> expr ifTrue: [statements to evaluate if expr] ifFalse: [statements to evaluate if not
+								expr]</code>
 
 								True methods for evaluation
 
@@ -504,7 +512,8 @@
 								ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
 
 								^falseAlternativeBlock value
-								positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions></code>
+								positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions>
+								
 								Note that this is related to functional programming, wherein patterns of computation
 								(here selection) are abstracted into higher-order functions. For example, the message
 								select: on a Collection is equivalent to the higher-order function filter on an
