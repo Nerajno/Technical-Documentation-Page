@@ -160,40 +160,20 @@
 			<header>Syntax</header>
 			<article>
 				<p>Smalltalk-80 syntax is rather minimalist, based on only a handful of declarations and reserved words.
-					In fact,
-					only six "keywords" are reserved in Smalltalk: true, false, nil, self, super, and thisContext. These
-					are
-					properly termed pseudo-variables, identifiers that follow the rules for variable identifiers but
-					denote
-					bindings
-					that a programmer cannot change. The true, false, and nil pseudo-variables are singleton instances.
-					self and
-					super refer to the receiver of a message within a method activated in response to that message, but
-					sends to
-					super are looked up in the superclass of the method's defining class rather than the class of the
-					receiver,
-					which allows methods in subclasses to invoke methods of the same name in superclasses. thisContext
-					refers to
-					the
-					current activation record. The only built-in language constructs are message sends, assignment,
-					method return
-					and literal syntax for some objects. From its origins as a language for children of all ages,
-					standard
-					Smalltalk
-					syntax uses punctuation in a manner more like English than mainstream coding languages. The
-					remainder of the
-					language, including control structures for conditional evaluation and iteration, is implemented on
-					top of the
-					built-in constructs by the standard Smalltalk class library. (For performance reasons,
-					implementations may
-					recognize and treat as special some of those messages; however, this is only an optimization and is
-					not
-					hardwired into the language syntax.)
-
-					The adage that "Smalltalk syntax fits on a postcard" refers to a code snippet by Ralph Johnson,
-					demonstrating
-					all the basic standard syntactic elements of methods:</p>
-
+					In fact, only six "keywords" are reserved in Smalltalk: true, false, nil, self, super, and thisContext. These
+					are properly termed pseudo-variables, identifiers that follow the rules for variable identifiers but
+					denote bindings that a programmer cannot change. The true, false, and nil pseudo-variables are singleton instances.
+					self and super refer to the receiver of a message within a method activated in response to that message, but
+					sends to super are looked up in the superclass of the method's defining class rather than the class of the
+					receiver, which allows methods in subclasses to invoke methods of the same name in superclasses. thisContext
+					refers to the current activation record. The only built-in language constructs are message sends, assignment,
+					method return and literal syntax for some objects. From its origins as a language for children of all ages,
+					standard Smalltalk syntax uses punctuation in a manner more like English than mainstream coding languages. The
+					remainder of the language, including control structures for conditional evaluation and iteration, is implemented on
+					top of the built-in constructs by the standard Smalltalk class library. (For performance reasons,
+					implementations may recognize and treat as special some of those messages; however, this is only an optimization and is
+					not hardwired into the language syntax.) The adage that "Smalltalk syntax fits on a postcard" refers to a code snippet 
+					by Ralph Johnson, demonstrating all the basic standard syntactic elements of methods:</p>
 				<code>
 					exampleWithNumber: x
 					| y |
@@ -203,28 +183,27 @@
 					do: [ :each |
 					Transcript show: (each class name);
 					show: ' '].
-					^x < y </code> 
+					^x < y 
+				</code> 
 
-					<strong>Literals</strong>
-						<p>The following examples illustrate the most common objects which can be written as literal
-							values in
-							Smalltalk-80
-							methods. </p>
+				<strong>Literals</strong>
+					<p>The following examples illustrate the most common objects which can be written as literal values in
+					Smalltalk-80 methods. </p>
 
-						<strong>Numbers.</strong>
+				<strong>Numbers.</strong>
 
-						<p> following list illustrates some of the possibilities. </p>>
+				<p> following list illustrates some of the possibilities. </p>>
 
-						<code>
-							<ul>
-								<li>42</li>
-								<li>-42</li>
-								<li>123.45</li>
-								<li>1.2345e2</li>
-								<li>2r10010010</li>
-								<li>16rA000</li>
-							</ul>
-						</code>
+				<code>
+					<ul>
+						<li>42</li>
+						<li>-42</li>
+						<li>123.45</li>
+						<li>1.2345e2</li>
+						<li>2r10010010</li>
+						<li>16rA000</li>
+					</ul>
+				</code>
 
 						<p>
 							The last two entries are a binary and a hexadecimal number, respectively. The number before
@@ -501,20 +480,20 @@
 							<code> expr ifTrue: [statements to evaluate if expr] ifFalse: [statements to evaluate if not
 								expr]</code>
 
-								True methods for evaluation
+								<p> methods for evaluation</p>
 
-								ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+								<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
 
-								^trueAlternativeBlock value
+								^trueAlternativeBlock value</code>>
 
-								False methods for evaluation
+								<p>False methods for evaluation</p>
 
-								ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+								<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
 
 								^falseAlternativeBlock value
-								positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions>
+								positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions></code>
 								
-								Note that this is related to functional programming, wherein patterns of computation
+								<p>Note that this is related to functional programming, wherein patterns of computation
 								(here selection) are abstracted into higher-order functions. For example, the message
 								select: on a Collection is equivalent to the higher-order function filter on an
 								appropriate functor.</p>
