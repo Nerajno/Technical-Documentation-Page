@@ -160,19 +160,30 @@
 			<header>Syntax</header>
 			<article>
 				<p>Smalltalk-80 syntax is rather minimalist, based on only a handful of declarations and reserved words.
-					In fact, only six "keywords" are reserved in Smalltalk: true, false, nil, self, super, and thisContext. These
+					In fact, only six "keywords" are reserved in Smalltalk: true, false, nil, self, super, and
+					thisContext. These
 					are properly termed pseudo-variables, identifiers that follow the rules for variable identifiers but
-					denote bindings that a programmer cannot change. The true, false, and nil pseudo-variables are singleton instances.
-					self and super refer to the receiver of a message within a method activated in response to that message, but
-					sends to super are looked up in the superclass of the method's defining class rather than the class of the
-					receiver, which allows methods in subclasses to invoke methods of the same name in superclasses. thisContext
-					refers to the current activation record. The only built-in language constructs are message sends, assignment,
-					method return and literal syntax for some objects. From its origins as a language for children of all ages,
-					standard Smalltalk syntax uses punctuation in a manner more like English than mainstream coding languages. The
-					remainder of the language, including control structures for conditional evaluation and iteration, is implemented on
+					denote bindings that a programmer cannot change. The true, false, and nil pseudo-variables are
+					singleton instances.
+					self and super refer to the receiver of a message within a method activated in response to that
+					message, but
+					sends to super are looked up in the superclass of the method's defining class rather than the class
+					of the
+					receiver, which allows methods in subclasses to invoke methods of the same name in superclasses.
+					thisContext
+					refers to the current activation record. The only built-in language constructs are message sends,
+					assignment,
+					method return and literal syntax for some objects. From its origins as a language for children of
+					all ages,
+					standard Smalltalk syntax uses punctuation in a manner more like English than mainstream coding
+					languages. The
+					remainder of the language, including control structures for conditional evaluation and iteration, is
+					implemented on
 					top of the built-in constructs by the standard Smalltalk class library. (For performance reasons,
-					implementations may recognize and treat as special some of those messages; however, this is only an optimization and is
-					not hardwired into the language syntax.) The adage that "Smalltalk syntax fits on a postcard" refers to a code snippet 
+					implementations may recognize and treat as special some of those messages; however, this is only an
+					optimization and is
+					not hardwired into the language syntax.) The adage that "Smalltalk syntax fits on a postcard" refers
+					to a code snippet
 					by Ralph Johnson, demonstrating all the basic standard syntactic elements of methods:</p>
 				<code>
 					exampleWithNumber: x
@@ -183,27 +194,25 @@
 					do: [ :each |
 					Transcript show: (each class name);
 					show: ' '].
-					^x < y 
-				</code> 
+					^x < y </code> <strong>Literals</strong>
+						<p>The following examples illustrate the most common objects which can be written as literal
+							values in
+							Smalltalk-80 methods. </p>
 
-				<strong>Literals</strong>
-					<p>The following examples illustrate the most common objects which can be written as literal values in
-					Smalltalk-80 methods. </p>
+						<strong>Numbers.</strong>
 
-				<strong>Numbers.</strong>
+						<p> following list illustrates some of the possibilities. </p>>
 
-				<p> following list illustrates some of the possibilities. </p>>
-
-				<code>
-					<ul>
-						<li>42</li>
-						<li>-42</li>
-						<li>123.45</li>
-						<li>1.2345e2</li>
-						<li>2r10010010</li>
-						<li>16rA000</li>
-					</ul>
-				</code>
+						<code>
+							<ul>
+								<li>42</li>
+								<li>-42</li>
+								<li>123.45</li>
+								<li>1.2345e2</li>
+								<li>2r10010010</li>
+								<li>16rA000</li>
+							</ul>
+						</code>
 
 						<p>
 							The last two entries are a binary and a hexadecimal number, respectively. The number before
@@ -238,307 +247,449 @@
 
 							Symbols are written as # followed by a string literal. For example: </p>
 
-							<code>#'foo'</code>
+						<code>#'foo'</code>
 
-							<p>If the sequence does not include whitespace or punctuation characters, this can also be
+						<p>If the sequence does not include whitespace or punctuation characters, this can also be
 							written as:</code>
 
-							<code>#foo</code>
+				<code>#foo</code>
 
-							<p><strong>Arrays:</strong></p>
+				<p><strong>Arrays:</strong></p>
 
-							<code>#(1 2 3 4)</code>
+				<code>#(1 2 3 4)</code>
 
-							<p> an array of four integers.
+				<p> an array of four integers.
 
-							Many implementations support the following literal syntax for ByteArrays:</p>
+					Many implementations support the following literal syntax for ByteArrays:</p>
 
-							<code>#[1 2 3 4]</code>
+				<code>#[1 2 3 4]</code>
 
-							<p>defines a ByteArray of four integers.
+				<p>defines a ByteArray of four integers.
 
-							And last but not least, blocks (anonymous function literals)</p>
+					And last but not least, blocks (anonymous function literals)</p>
 
-							<code>[... Some smalltalk code...]</code>
+				<code>[... Some smalltalk code...]</code>
 
-							<p>Blocks are explained in detail further in the text.
+				<p>Blocks are explained in detail further in the text.
 
-							Many Smalltalk dialects implement additional syntaxes for other objects, but the ones above
-							are the essentials supported by all.</p>
+					Many Smalltalk dialects implement additional syntaxes for other objects, but the ones above
+					are the essentials supported by all.</p>
 
-							<p>Variable declarations
-							The two kinds of variables commonly used in Smalltalk are instance variables and temporary
-							variables. Other variables and related terminology depend on the particular implementation.
-							For example, VisualWorks has class shared variables and namespace shared variables, while
-							Squeak and many other implementations have class variables, pool variables and global
-							variables.
+				<p>Variable declarations
+					The two kinds of variables commonly used in Smalltalk are instance variables and temporary
+					variables. Other variables and related terminology depend on the particular implementation.
+					For example, VisualWorks has class shared variables and namespace shared variables, while
+					Squeak and many other implementations have class variables, pool variables and global
+					variables.
 
-							Temporary variable declarations in Smalltalk are variables declared inside a method (see
-							below). They are declared at the top of the method as names separated by spaces and enclosed
-							by vertical bars. For example:</p>
+					Temporary variable declarations in Smalltalk are variables declared inside a method (see
+					below). They are declared at the top of the method as names separated by spaces and enclosed
+					by vertical bars. For example:</p>
 
-							<code>| index |</code>
-							<p>declares a temporary variable named index which contains initially the value nil.
+				<code>| index |</code>
+				<p>declares a temporary variable named index which contains initially the value nil.
 
-							Multiple variables may be declared within one set of bars: </p>
+					Multiple variables may be declared within one set of bars: </p>
 
-							<code>| index vowels |</code>
-							<p>declares two variables: index and vowels. All variables are initialized. Variables are
-							initialized to nil except the indexed variables of Strings, which are initialized to the
-							null character or ByteArrays which are initialized to 0.
+				<code>| index vowels |</code>
+				<p>declares two variables: index and vowels. All variables are initialized. Variables are
+					initialized to nil except the indexed variables of Strings, which are initialized to the
+					null character or ByteArrays which are initialized to 0.
 
-							Assignment
-							A variable is assigned a value via the ':=' syntax. So:</p>
+					Assignment
+					A variable is assigned a value via the ':=' syntax. So:</p>
 
-							<code>vowels := 'aeiou'</code>
-							
-							<p>Assigns the string 'aeiou' to the formerly declared vowels variable. The string is an object
-							(a sequence of characters between single quotes is the syntax for literal strings), created
-							by the compiler at compile time.
+				<code>vowels := 'aeiou'</code>
 
-							In the original Parc Place image, the glyph of the underscore character ⟨_⟩ appeared as a
-							left-facing arrow ⟨←⟩ (like in the 1963 version of the ASCII code). Smalltalk originally
-							accepted this left-arrow as the only assignment operator. Some modern code still contains
-							what appear to be underscores acting as assignments, hearkening back to this original usage.
-							Most modern Smalltalk implementations accept either the underscore or the colon-equals
-							syntax.
+				<p>Assigns the string 'aeiou' to the formerly declared vowels variable. The string is an object
+					(a sequence of characters between single quotes is the syntax for literal strings), created
+					by the compiler at compile time.
 
-							Messages
-							The message is the most fundamental language construct in Smalltalk. Even control structures
-							are implemented as message sends. Smalltalk adopts by default a synchronous, single dynamic
-							message dispatch strategy (as contrasted to the asynchronous, multiple dispatch strategy
-							adopted by some other object-oriented languages).
+					In the original Parc Place image, the glyph of the underscore character ⟨_⟩ appeared as a
+					left-facing arrow ⟨←⟩ (like in the 1963 version of the ASCII code). Smalltalk originally
+					accepted this left-arrow as the only assignment operator. Some modern code still contains
+					what appear to be underscores acting as assignments, hearkening back to this original usage.
+					Most modern Smalltalk implementations accept either the underscore or the colon-equals
+					syntax.
 
-							The following example sends the message 'factorial' to number 42:</p>
+					Messages
+					The message is the most fundamental language construct in Smalltalk. Even control structures
+					are implemented as message sends. Smalltalk adopts by default a synchronous, single dynamic
+					message dispatch strategy (as contrasted to the asynchronous, multiple dispatch strategy
+					adopted by some other object-oriented languages).
 
-							<code>42 factorial </code>
-							<p>In this situation 42 is called the message receiver, while 'factorial' is the message
-							selector. The receiver responds to the message by returning a value (presumably in this case
-							the factorial of 42). Among other things, the result of the message can be assigned to a
-							variable:</p>
+					The following example sends the message 'factorial' to number 42:</p>
 
-							<code>aRatherBigNumber := 42 factorial</code>
-							<p>"factorial" above is what is called a unary message because only one object, the receiver,
-							is involved. Messages can carry additional objects as arguments, as follows:</p>
+				<code>42 factorial </code>
+				<p>In this situation 42 is called the message receiver, while 'factorial' is the message
+					selector. The receiver responds to the message by returning a value (presumably in this case
+					the factorial of 42). Among other things, the result of the message can be assigned to a
+					variable:</p>
 
-							<code> raisedTo: 4 </code>
-							<p>In this expression two objects are involved: 2 as the receiver and 4 as the message
-							argument. The message result, or in Smalltalk parlance, the answer is supposed to be 16.
-							Such messages are called keyword messages. A message can have more arguments, using the
-							following syntax:</p>
+				<code>aRatherBigNumber := 42 factorial</code>
+				<p>"factorial" above is what is called a unary message because only one object, the receiver,
+					is involved. Messages can carry additional objects as arguments, as follows:</p>
 
-							<code>'hello world' indexOf: $o startingAt: 6</code>
-							<p>which answers the index of character 'o' in the receiver string, starting the search from
-							index 6. The selector of this message is "indexOf:startingAt:", consisting of two pieces, or
-							keywords.
+				<code> raisedTo: 4 </code>
+				<p>In this expression two objects are involved: 2 as the receiver and 4 as the message
+					argument. The message result, or in Smalltalk parlance, the answer is supposed to be 16.
+					Such messages are called keyword messages. A message can have more arguments, using the
+					following syntax:</p>
 
-							Such interleaving of keywords and arguments is meant to improve readability of code, since
-							arguments are explained by their preceding keywords. For example, an expression to create a
-							rectangle using a C++ or Java-like syntax might be written as: </p>
+				<code>'hello world' indexOf: $o startingAt: 6</code>
+				<p>which answers the index of character 'o' in the receiver string, starting the search from
+					index 6. The selector of this message is "indexOf:startingAt:", consisting of two pieces, or
+					keywords.
 
-							<code> Rectangle(100, 200); </code>
-							<p>It's unclear which argument is which. By contrast, in Smalltalk, this code would be written
-							as:</p>
+					Such interleaving of keywords and arguments is meant to improve readability of code, since
+					arguments are explained by their preceding keywords. For example, an expression to create a
+					rectangle using a C++ or Java-like syntax might be written as: </p>
 
-							<code>Rectangle width: 100 height: 200</code>
-							<p>The receiver in this case is "Rectangle", a class, and the answer will be a new instance of
-							the class with the specified width and height.
+				<code> Rectangle(100, 200); </code>
+				<p>It's unclear which argument is which. By contrast, in Smalltalk, this code would be written
+					as:</p>
 
-							Finally, most of the special (non-alphabetic) characters can be used as what are called
-							binary messages. These allow mathematical and logical operators to be written in their
-							traditional form: </p>
+				<code>Rectangle width: 100 height: 200</code>
+				<p>The receiver in this case is "Rectangle", a class, and the answer will be a new instance of
+					the class with the specified width and height.
 
-							<code>3 + 4</code>
-							<p>which sends the message "+" to the receiver 3 with 4 passed as the argument (the answer of
-							which will be 7). Similarly,</p>
+					Finally, most of the special (non-alphabetic) characters can be used as what are called
+					binary messages. These allow mathematical and logical operators to be written in their
+					traditional form: </p>
 
-							<code>3 > 4</code>
-							<p>is the message ">" sent to 3 with argument 4 (the answer of which will be false).
+				<code>3 + 4</code>
+				<p>which sends the message "+" to the receiver 3 with 4 passed as the argument (the answer of
+					which will be 7). Similarly,</p>
 
-							Notice, that the Smalltalk-80 language itself does not imply the meaning of those operators.
-							The outcome of the above is only defined by how the receiver of the message (in this case a
-							Number instance) responds to messages "+" and ">".
+				<code>3 > 4</code>
+				<p>is the message ">" sent to 3 with argument 4 (the answer of which will be false).
 
-							A side effect of this mechanism is operator overloading. A message ">" can also be
-							understood by other objects, allowing the use of expressions of the form "a > b" to compare
-							them.
+					Notice, that the Smalltalk-80 language itself does not imply the meaning of those operators.
+					The outcome of the above is only defined by how the receiver of the message (in this case a
+					Number instance) responds to messages "+" and ">".
 
-							Expressions
-							An expression can include multiple message sends. In this case expressions are parsed
-							according to a simple order of precedence. Unary messages have the highest precedence,
-							followed by binary messages, followed by keyword messages. For example:</p>
+					A side effect of this mechanism is operator overloading. A message ">" can also be
+					understood by other objects, allowing the use of expressions of the form "a > b" to compare
+					them.
 
-							<code>3 factorial + 4 factorial between: 10 and: 100</code>
+					Expressions
+					An expression can include multiple message sends. In this case expressions are parsed
+					according to a simple order of precedence. Unary messages have the highest precedence,
+					followed by binary messages, followed by keyword messages. For example:</p>
 
-							<p> evaluated as follows:</p>
-							<ul>
-							<li>3 receives the message "factorial" and answers 6</li> 
-							<li>4 receives the message "factorial" and answers 24</li>
-							<li>6 receives the message "+" with 24 as the argument and answers 30</li>
-							<li> receives the message "between:and:" with 10 and 100 as arguments and answers true</li>
-							</ul>
+				<code>3 factorial + 4 factorial between: 10 and: 100</code>
 
-							<p> answer of the last message sent is the result of the entire expression.
+				<p> evaluated as follows:</p>
+				<ul>
+					<li>3 receives the message "factorial" and answers 6</li>
+					<li>4 receives the message "factorial" and answers 24</li>
+					<li>6 receives the message "+" with 24 as the argument and answers 30</li>
+					<li> receives the message "between:and:" with 10 and 100 as arguments and answers true</li>
+				</ul>
 
-							Parentheses can alter the order of evaluation when needed. For example,</p>
+				<p> answer of the last message sent is the result of the entire expression.
 
-							<code>(3 factorial + 4) factorial between: 10 and: 100 </code>
+					Parentheses can alter the order of evaluation when needed. For example,</p>
 
-							<p>will change the meaning so that the expression first computes "3 factorial + 4" yielding 10.
-							That 10 then receives the second "factorial" message, yielding 3628800. 3628800 then
-							receives "between:and:", answering false.
+				<code>(3 factorial + 4) factorial between: 10 and: 100 </code>
 
-							Note that because the meaning of binary messages is not hardwired into Smalltalk-80 syntax,
-							all of them are considered to have equal precedence and are evaluated simply from left to
-							right. Because of this, the meaning of Smalltalk expressions using binary messages can be
-							different from their "traditional" interpretation:</p>
+				<p>will change the meaning so that the expression first computes "3 factorial + 4" yielding 10.
+					That 10 then receives the second "factorial" message, yielding 3628800. 3628800 then
+					receives "between:and:", answering false.
 
-							<code>3 + 4 * 5 </code>
+					Note that because the meaning of binary messages is not hardwired into Smalltalk-80 syntax,
+					all of them are considered to have equal precedence and are evaluated simply from left to
+					right. Because of this, the meaning of Smalltalk expressions using binary messages can be
+					different from their "traditional" interpretation:</p>
 
-							<p>is evaluated as "(3 + 4) * 5", producing 35. To obtain the expected answer of 23,
-							parentheses must be used to explicitly define the order of operations: </p>
+				<code>3 + 4 * 5 </code>
 
-							<code>3 + (4 * 5)</code>
-							<p> messages can be chained by writing them one after another:</p>
+				<p>is evaluated as "(3 + 4) * 5", producing 35. To obtain the expected answer of 23,
+					parentheses must be used to explicitly define the order of operations: </p>
 
-							<code>3 factorial factorial log</code>
+				<code>3 + (4 * 5)</code>
+				<p> messages can be chained by writing them one after another:</p>
 
-							<p>which sends "factorial" to 3, then "factorial" to the result (6), then "log" to the result
-							(720), producing the result 2.85733.
+				<code>3 factorial factorial log</code>
 
-							A series of expressions can be written as in the following (hypothetical) example, each
-							separated by a period. This example first creates a new instance of class Window, stores it
-							in a variable, and then sends two messages to it.</p>
-							<code>
-							<ul>
-								<li>| window |</li>
-								<li>window := Window new.</li>
-								<li>window label: 'Hello'.</li>
-								<li>window open</li>
-							</ul>
-						</code>
-						
-						<p>	If a series of messages are sent to the same receiver as in the example above, they can also
-							be written as a cascade with individual messages separated by semicolons: </p>
+				<p>which sends "factorial" to 3, then "factorial" to the result (6), then "log" to the result
+					(720), producing the result 2.85733.
 
-						<code>Window new
-							label: 'Hello';
-							open
-						</code>	
+					A series of expressions can be written as in the following (hypothetical) example, each
+					separated by a period. This example first creates a new instance of class Window, stores it
+					in a variable, and then sends two messages to it.</p>
+				<code>
+					<ul>
+						<li>| window |</li>
+						<li>window := Window new.</li>
+						<li>window label: 'Hello'.</li>
+						<li>window open</li>
+					</ul>
+				</code>
 
-						<p>	This rewrite of the earlier example as a single expression avoids the need to store the new
-							window in a temporary variable. According to the usual precedence rules, the unary message
-							"new" is sent first, and then "label:" and "open" are sent to the answer of "new".</p>
+				<p> If a series of messages are sent to the same receiver as in the example above, they can also
+					be written as a cascade with individual messages separated by semicolons: </p>
 
-						<p>Code blocks
-							A block of code (an anonymous function) can be expressed as a literal value (which is an
-							object, since all values are objects). This is achieved with square brackets:</p>
+				<code>Window new
+					label: 'Hello';
+					open
+				</code>
 
-						<code>	code[ :params | <message-expressions> ]</code>
+				<p> This rewrite of the earlier example as a single expression avoids the need to store the new
+					window in a temporary variable. According to the usual precedence rules, the unary message
+					"new" is sent first, and then "label:" and "open" are sent to the answer of "new".</p>
 
-						<p>Where :params is the list of parameters the code can take. This means that the Smalltalk
-								code: </p>
+				<p>Code blocks
+					A block of code (an anonymous function) can be expressed as a literal value (which is an
+					object, since all values are objects). This is achieved with square brackets:</p>
 
-							<code>[:x | x + 1]</code>
-				
-						<p>an be understood as: </p>
+				<code> code[ :params | <message-expressions> ]</code>
 
-							<code>{\displaystyle f}f : {\displaystyle f(x)=x+1}f(x)=x+1</code>
-								
-						<p>or expressed in lambda terms as: </p>
+				<p>Where :params is the list of parameters the code can take. This means that the Smalltalk
+					code: </p>
 
-							<code>{\displaystyle \lambda x}\lambda x : {\displaystyle x+1}x+1</code>
-								
-						<p>and </p>
+				<code>[:x | x + 1]</code>
 
-							<code>[:x | x + 1] value: 3</code>
-						
-						<p>can be evaluated as </p>
+				<p>an be understood as: </p>
 
-							<code>{\displaystyle f(3)=3+1}f(3)=3+1</code>
+				<code>{\displaystyle f}f : {\displaystyle f(x)=x+1}f(x)=x+1</code>
 
-						<p> Or in lambda terms as: </p>
+				<p>or expressed in lambda terms as: </p>
 
-							<code>{\displaystyle (\lambda x:x+1)3_{\beta }\rightarrow 4}(\lambda x:x+1)3_{\beta
-								}\rightarrow 4</code>
+				<code>{\displaystyle \lambda x}\lambda x : {\displaystyle x+1}x+1</code>
 
-						<p>The resulting block object can form a closure: it can access the variables of its
-								enclosing lexical scopes at any time. Blocks are first-class objects.
+				<p>and </p>
 
-								Blocks can be executed by sending them the value message (compound variations exist in
-								order to provide parameters to the block e.g. 'value:value:' and 'valueWithArguments:').
+				<code>[:x | x + 1] value: 3</code>
 
-								The literal representation of blocks was an innovation which on the one hand allowed
-								certain code to be significantly more readable; it allowed algorithms involving
-								iteration to be coded in a clear and concise way. Code that would typically be written
-								with loops in some languages can be written concisely in Smalltalk using blocks,
-								sometimes in a single line. But more importantly blocks allow control structure to be
-								expressed using messages and polymorphism, since blocks defer computation and
-								polymorphism can be used to select alternatives. So if-then-else in Smalltalk is written
-							and implemented as </p>
+				<p>can be evaluated as </p>
 
-							<code> expr ifTrue: [statements to evaluate if expr] ifFalse: [statements to evaluate if not
-								expr]</code>
+				<code>{\displaystyle f(3)=3+1}f(3)=3+1</code>
 
-								<p> methods for evaluation</p>
+				<p> Or in lambda terms as: </p>
 
-								<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+				<code>{\displaystyle (\lambda x:x+1)3_{\beta }\rightarrow 4}(\lambda x:x+1)3_{\beta
+					}\rightarrow 4</code>
 
-								^trueAlternativeBlock value</code>>
+				<p>The resulting block object can form a closure: it can access the variables of its
+					enclosing lexical scopes at any time. Blocks are first-class objects.
 
-								<p>False methods for evaluation</p>
+					Blocks can be executed by sending them the value message (compound variations exist in
+					order to provide parameters to the block e.g. 'value:value:' and 'valueWithArguments:').
 
-								<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+					The literal representation of blocks was an innovation which on the one hand allowed
+					certain code to be significantly more readable; it allowed algorithms involving
+					iteration to be coded in a clear and concise way. Code that would typically be written
+					with loops in some languages can be written concisely in Smalltalk using blocks,
+					sometimes in a single line. But more importantly blocks allow control structure to be
+					expressed using messages and polymorphism, since blocks defer computation and
+					polymorphism can be used to select alternatives. So if-then-else in Smalltalk is written
+					and implemented as </p>
 
-								^falseAlternativeBlock value
-								positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions></code>
-								
-								<p>Note that this is related to functional programming, wherein patterns of computation
-								(here selection) are abstracted into higher-order functions. For example, the message
-								select: on a Collection is equivalent to the higher-order function filter on an
-								appropriate functor.</p>
+				<code> expr ifTrue: [statements to evaluate if expr] ifFalse: [statements to evaluate if not
+					expr]</code>
+
+				<p> methods for evaluation</p>
+
+				<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+
+					^trueAlternativeBlock value</code>>
+
+				<p>False methods for evaluation</p>
+
+				<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+
+					^falseAlternativeBlock value
+					positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions></code>
+
+				<p>Note that this is related to functional programming, wherein patterns of computation
+					(here selection) are abstracted into higher-order functions. For example, the message
+					select: on a Collection is equivalent to the higher-order function filter on an
+					appropriate functor.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Control Structures">
-			<header></header>
+			<header>Control structures</header>
 			<article>
-				<p></p>
+				<p>Control structures do not have special syntax in Smalltalk. They are instead implemented as messages
+					sent to objects. For example, conditional execution is implemented by sending the message ifTrue: to
+					a Boolean object, passing as an argument the block of code to be executed if and only if the Boolean
+					receiver is true.</p>
+				<p>The following code demonstrates this:</p>
+				<code>
+					<ul>
+						<li>result := a > b</li>
+						<li>ifTrue:[ 'greater' ]</li>
+						<li>ifFalse:[ 'less or equal' ]</li>
+					</ul>
+				</code>
+				<p>Blocks are also used to implement user-defined control structures, enumerators, visitors, exception
+					handling, pluggable behavior and many other patterns. For example:</p>
+				<code>
+					<ul>
+						<li> | aString vowels | </li>
+						<li>aString := 'This is a string'.</li>
+						<li>aString := 'This is a string'.</li>
+					</ul>
+				</code>
+				<p>In the last line, the string is sent the message select: with an argument that is a code block
+					literal. The code block literal will be used as a predicate function that should answer true if and
+					only if an element of the String should be included in the Collection of characters that satisfy the
+					test represented by the code block that is the argument to the "select:" message.</p>
+				<p>A String object responds to the "select:" message by iterating through its members (by sending itself
+					the message "do:"), evaluating the selection block ("aBlock") once with each character it contains
+					as the argument. When evaluated (by being sent the message "value: each"), the selection block
+					(referenced by the parameter "aBlock", and defined by the block literal "[:aCharacter | aCharacter
+					isVowel]"), answers a boolean, which is then sent "ifTrue:". If the boolean is the object true, the
+					character is added to a string to be returned. Because the "select:" method is defined in the
+					abstract class Collection, it can also be used like this:</p>
+				<code>
+					<ul>
+						<li>| rectangles aPoint collisions |</li>
+						<li>rectangles := OrderedCollection</li>
+						<li> with: (Rectangle left: 0 right: 10 top: 100 bottom: 200)</li>
+						<li> with: (Rectangle left: 10 right: 10 top: 110 bottom: 210).</li>
+						<li>aPoint := Point x: 20 y: 20.</li>
+						<li>collisions := rectangles select: [:aRect | aRect containsPoint: aPoint].</li>
+					</ul>
+				</code>
+				<p>The exception handling mechanism uses blocks as handlers (similar to CLOS-style exception handling):
+				</p>
+				<code>
+					<ul>
+						<li>[</li>
+						<li>some operation</li>
+						<li>] on:Error do:[:ex |</li>
+						<li>handler-code</li>
+						<li>ex return</li>
+						<li>]</li>
+					</ul>
+				</code>
+				<p>The exception handler's "ex" argument provides access to the state of the suspended operation (stack
+					frame, line-number, receiver and arguments etc.) and is also used to control how the computation is
+					to proceed (by sending one of "ex proceed", "ex reject", "ex restart" or "ex return").</p>
 			</article>
 		</section>
 		<section class="main-section" id="Classes">
-			<header></header>
+			<header>Classes
+			</header>
 			<article>
-				<p></p>
+				<p>This is a stock class definition: </p>
+				<code><ul>
+					<li>Object subclass: #MessagePublisher</li>
+					<li>instanceVariableNames: ''</li>
+					<li>classVariableNames: ''</li>
+					<li>poolDictionaries: ''</li>
+					<li>category: 'Smalltalk Examples'</li>
+				</ul></code>
+				<p>Often, most of this definition will be filled in by the environment. 
+					Notice that this is a message to the Object class to create a subclass called 
+					MessagePublisher. In other words: classes are first-class objects in Smalltalk 
+					which can receive messages just like any other object and can be created dynamically at execution time.
+				</p>
+				<h4>Methods</h4>
+				<p>When an object receives a message, a method matching the message name is invoked.
+				The following code defines a method publish, and so defines what will happen when this 
+				object receives the 'publish' message.</p>
+				<code>
+					<ul>
+						<li>
+							publish
+						</li>
+						<li>
+							Transcript show: 'Hello World!'
+						</li>
+					</ul>
+				</code>
+				<p>The following method demonstrates receiving multiple arguments and returning a value:</p>
+				<code>
+					<ul>
+						<li>quadMultiply: i1 and: i2</li>
+						<li>"This method multiplies the given numbers by each other and the result by 4."</li>
+						<li>| mul |</li>
+						<li>mul := i1 * i2.</li>
+						<li> ^mul * 4</li>
+					</ul>
+				</code>
+				<p>The method's name is  <code>#quadMultiply:and:</code>. The return value is specified with the ^ operator.
+					Note that objects are responsible for determining dynamically at runtime which method to execute in response to
+					a message—while in many languages this may be (sometimes, or even always) determined statically at compile time.
+				</p>
+				<h4>Instantiating classes </h4>
+
+				<p>The following code:</p>
+				<code>MessagePublisher new</code>
+				<p>creates (and returns) a new instance of the MessagePublisher class. This is typically assigned to a variable:</p>
+				<code>publisher := MessagePublisher new</code>
+				<p>However, it is also possible to send a message to a temporary, anonymous object:</p>
+				<code>
+					MessagePublisher new publish
+				</code>
 			</article>
 		</section>
 		<section class="main-section" id="Executed_Code">
-			<header></header>
+			<header>Executed Code</header>
 			<article>
-				<p></p>
+				<p>
+					The Hello world program is used by virtually all texts to new programming languages as the first program learned to show the most basic syntax and environment of the language. For Smalltalk, the program is extremely simple to write. The following code, the message "show:" is sent to the object "Transcript" with the String literal 'Hello, world!' as its argument. Invocation of the "show:" method causes the characters of its argument (the String literal 'Hello, world!') to be displayed in the transcript ("terminal") window.
+				</p>
+				<code>Transcript show: 'Hello, world!'.</code>
+				<p>Note that a Transcript window would need to be open in order to see the results of this example.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Image_Based_Persistence">
-			<header></header>
+			<header>Image-based Persistence</header>
 			<article>
-				<p></p>
+				<p>Most popular programming systems separate static program code (in the form of class definitions, functions or procedures) from dynamic, or run time, program state (such as objects or other forms of program data). They load program code when a program starts, and any prior program state must be recreated explicitly from configuration files or other data sources. Any settings the program (and programmer) does not explicitly save must be set up again for each restart. A traditional program also loses much useful document information each time a program saves a file, quits, and reloads. This loses details such as undo history or cursor position. Image based systems don't force losing all that just because a computer is turned off, or an OS updates.
+
+					Many Smalltalk systems, however, do not differentiate between program data (objects) and code (classes). In fact, classes are objects. Thus, most Smalltalk systems store the entire program state (including both Class and non-Class objects) in an image file. The image can then be loaded by the Smalltalk virtual machine to restore a Smalltalk-like system to a prior state.[30] This was inspired by FLEX, a language created by Alan Kay and described in his M.Sc. thesis.[31]
+					
+					Smalltalk images are similar to (restartable) core dumps and can provide the same functionality as core dumps, such as delayed or remote debugging with full access to the program state at the time of error. Other languages that model application code as a form of data, such as Lisp, often use image-based persistence as well. This method of persistence is powerful for rapid development because all the development information (e.g. parse trees of the program) is saved which facilitates debugging. However, it also has serious drawbacks as a true persistence mechanism. For one thing, developers may often want to hide implementation details and not make them available in a run time environment. For reasons of legality and maintenance, allowing anyone to modify a program at run time inevitably introduces complexity and potential errors that would not be possible with a compiled system that exposes no source code in the run time environment. Also, while the persistence mechanism is easy to use, it lacks the true persistence abilities needed for most multi-user systems. The most obvious is the ability to do transactions with multiple users accessing the same database in parallel.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Access_Levels">
-			<header></header>
+			<header>Levels of Access</header>
 			<article>
-				<p></p>
+				<p>Everything in Smalltalk-80 is available for modification from within a running program. This means that, for example, the IDE can be changed in a running system without restarting it. In some implementations, the syntax of the language or the garbage collection implementation can also be changed on the fly. Even the statement true become: false is valid in Smalltalk, although executing it is not recommended.</p>
 			</article>
 		</section>
 		<section class="main-section" id="JIT">
-			<header></header>
+			<header>Just-in-time Compilation</header>
 			<article>
-				<p></p>
+				<p>Smalltalk programs are usually compiled to bytecode, which is then interpreted by a virtual machine or dynamically translated into machine-native code.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Other_Info">
-			<header></header>
+			<header>Other Information</header>
 			<article>
-				<p></p>
+				<h4>List of Implementations</h4>
+				<ul>
+					<li>Amber Smalltalk, runs on JavaScript via transpilation</li>
+					<li>Cincom has the following Smalltalk products: ObjectStudio, VisualWorks and WebVelocity.</li>
+					<li>Visual Smalltalk Enterprise, and family, including Smalltalk/V</li>
+					<li>F-Script</li>
+					<li>GemTalk Systems, GemStone/S</li>
+					<li>GNU Smalltalk</li>
+					<li>StepTalk, GNUstep scripting framework uses Smalltalk language on an Objective-C runtime</li>
+					<li>VisualAge Smalltalk</li>
+					<li>VAST Platform (VA Smalltalk), developed by Instantiations, Inc</li>
+					<li>Little Smalltalk</li>
+					<li>Object Arts, Dolphin Smalltalk</li>
+					<li>Object Connect, Smalltalk MT Smalltalk for Windows</li>
+					<li>Pharo Smalltalk, an open-source cross-platform language</li>
+					<li>PharoJS an open-source transpiler from Smalltalk to Javascript, extending the Pharo environment</li>
+					<li>Pocket Smalltalk, runs on Palm Pilot</li>
+					<li>Squeak, open source Smalltalk</li>
+					<li>eToys, a visual programming system for learning</li>
+					<li>Strongtalk, for Windows, offers optional strong typing</li>
+				</ul>
+
+				<h4>See also || Look at also</h4>
+				<ul>
+					<li>Objective-C</li>
+					<li>GLASS (software bundle)</li>
+					<li>Distributed Data Management Architecture</li>
+				</ul>
 			</article>
 		</section>
 	</main>
