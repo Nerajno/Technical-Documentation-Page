@@ -39,7 +39,12 @@
 			<header>Introduction</header>
 			<article>
 				<p>
-					Smalltalk is an object-oriented, dynamically typed reflective programming language.
+					Smalltalk is an <a href="https://en.wikipedia.org/wiki/Object-oriented_programming"
+						target="_blank">object-oriented,</a> <a
+						href="https://en.wikipedia.org/wiki/Type_system#Dynamic_type_checking_and_runtime_type_information"
+						target="_blank">dynamically typed </a> <a
+						href="https://en.wikipedia.org/wiki/Reflection_(computer_programming)"
+						target="_blank"> reflective</a><a href="https://en.wikipedia.org/wiki/Programming_language" target="_blank"> programming language</a> .
 					Smalltalk was created as the language underpinning the "new world" of computing exemplified
 					by "human–computer symbiosis". It was designed and created in part for educational use,
 					specifically for constructionist learning, at the Learning Research Group (LRG) of Xerox PARC
@@ -205,17 +210,15 @@
 
 						<strong>Numbers.</strong>
 
-						<p> following list illustrates some of the possibilities. </p>>
+						<p> following list illustrates some of the possibilities. </p>
 
 						<code>
-							<ul>
-								<li>42</li>
-								<li>-42</li>
-								<li>123.45</li>
-								<li>1.2345e2</li>
-								<li>2r10010010</li>
-								<li>16rA000</li>
-							</ul>
+								42
+								-42
+								123.45
+								1.2345e2
+								2r10010010
+								16rA000
 						</code>
 
 						<p>
@@ -423,18 +426,17 @@
 					separated by a period. This example first creates a new instance of class Window, stores it
 					in a variable, and then sends two messages to it.</p>
 				<code>
-					<ul>
-						<li>| window |</li>
-						<li>window := Window new.</li>
-						<li>window label: 'Hello'.</li>
-						<li>window open</li>
-					</ul>
+					| window |
+					window := Window new.
+					window label: 'Hello'.
+					window open
 				</code>
 
 				<p> If a series of messages are sent to the same receiver as in the example above, they can also
 					be written as a cascade with individual messages separated by semicolons: </p>
 
-				<code>Window new
+				<code>
+					Window new
 					label: 'Hello';
 					open
 				</code>
@@ -443,8 +445,8 @@
 					window in a temporary variable. According to the usual precedence rules, the unary message
 					"new" is sent first, and then "label:" and "open" are sent to the answer of "new".</p>
 
-				<p>Code blocks
-					A block of code (an anonymous function) can be expressed as a literal value (which is an
+				<h6>Code blocks</h6>	
+				<p>A block of code (an anonymous function) can be expressed as a literal value (which is an
 					object, since all values are objects). This is achieved with square brackets:</p>
 
 				<code> code[ :params | <message-expressions> ]</code>
@@ -472,8 +474,10 @@
 
 				<p> Or in lambda terms as: </p>
 
-				<code>{\displaystyle (\lambda x:x+1)3_{\beta }\rightarrow 4}(\lambda x:x+1)3_{\beta
-					}\rightarrow 4</code>
+				<code>
+					{\displaystyle (\lambda x:x+1)3_{\beta }\rightarrow 4}(\lambda x:x+1)3_{\beta
+					}\rightarrow 4
+				</code>
 
 				<p>The resulting block object can form a closure: it can access the variables of its
 					enclosing lexical scopes at any time. Blocks are first-class objects.
@@ -495,16 +499,17 @@
 
 				<p> methods for evaluation</p>
 
-				<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
-
-					^trueAlternativeBlock value</code>>
+				<code>
+					ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
+					^trueAlternativeBlock value
+				</code>
 
 				<p>False methods for evaluation</p>
 
 				<code>ifTrue: trueAlternativeBlock ifFalse: falseAlternativeBlock
-
 					^falseAlternativeBlock value
-					positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions></code>
+					positiveAmounts := allAmounts select: [:anAmount | anAmount isPositive]</message-expressions>
+				</code>
 
 				<p>Note that this is related to functional programming, wherein patterns of computation
 					(here selection) are abstracted into higher-order functions. For example, the message
@@ -579,22 +584,25 @@
 			</header>
 			<article>
 				<p>This is a stock class definition: </p>
-				<code><ul>
-					<li>Object subclass: #MessagePublisher</li>
-					<li>instanceVariableNames: ''</li>
-					<li>classVariableNames: ''</li>
-					<li>poolDictionaries: ''</li>
-					<li>category: 'Smalltalk Examples'</li>
-				</ul></code>
-				<p>Often, most of this definition will be filled in by the environment. 
-					Notice that this is a message to the Object class to create a subclass called 
-					MessagePublisher. In other words: classes are first-class objects in Smalltalk 
-					which can receive messages just like any other object and can be created dynamically at execution time.
+				<code>
+					<ul>
+						<li>Object subclass: #MessagePublisher</li>
+						<li>instanceVariableNames: ''</li>
+						<li>classVariableNames: ''</li>
+						<li>poolDictionaries: ''</li>
+						<li>category: 'Smalltalk Examples'</li>
+					</ul>
+				</code>
+				<p>Often, most of this definition will be filled in by the environment.
+					Notice that this is a message to the Object class to create a subclass called
+					MessagePublisher. In other words: classes are first-class objects in Smalltalk
+					which can receive messages just like any other object and can be created dynamically at execution
+					time.
 				</p>
 				<h4>Methods</h4>
 				<p>When an object receives a message, a method matching the message name is invoked.
-				The following code defines a method publish, and so defines what will happen when this 
-				object receives the 'publish' message.</p>
+					The following code defines a method publish, and so defines what will happen when this
+					object receives the 'publish' message.</p>
 				<code>
 					<ul>
 						<li>
@@ -615,15 +623,19 @@
 						<li> ^mul * 4</li>
 					</ul>
 				</code>
-				<p>The method's name is  <code>#quadMultiply:and:</code>. The return value is specified with the ^ operator.
-					Note that objects are responsible for determining dynamically at runtime which method to execute in response to
-					a message—while in many languages this may be (sometimes, or even always) determined statically at compile time.
+				<p>The method's name is <code>#quadMultiply:and:</code>. The return value is specified with the ^
+					operator.
+					Note that objects are responsible for determining dynamically at runtime which method to execute in
+					response to
+					a message—while in many languages this may be (sometimes, or even always) determined statically at
+					compile time.
 				</p>
 				<h4>Instantiating classes </h4>
 
 				<p>The following code:</p>
 				<code>MessagePublisher new</code>
-				<p>creates (and returns) a new instance of the MessagePublisher class. This is typically assigned to a variable:</p>
+				<p>creates (and returns) a new instance of the MessagePublisher class. This is typically assigned to a
+					variable:</p>
 				<code>publisher := MessagePublisher new</code>
 				<p>However, it is also possible to send a message to a temporary, anonymous object:</p>
 				<code>
@@ -635,7 +647,12 @@
 			<header>Executed code</header>
 			<article>
 				<p>
-					The Hello world program is used by virtually all texts to new programming languages as the first program learned to show the most basic syntax and environment of the language. For Smalltalk, the program is extremely simple to write. The following code, the message "show:" is sent to the object "Transcript" with the String literal 'Hello, world!' as its argument. Invocation of the "show:" method causes the characters of its argument (the String literal 'Hello, world!') to be displayed in the transcript ("terminal") window.
+					The Hello world program is used by virtually all texts to new programming languages as the first
+					program learned to show the most basic syntax and environment of the language. For Smalltalk, the
+					program is extremely simple to write. The following code, the message "show:" is sent to the object
+					"Transcript" with the String literal 'Hello, world!' as its argument. Invocation of the "show:"
+					method causes the characters of its argument (the String literal 'Hello, world!') to be displayed in
+					the transcript ("terminal") window.
 				</p>
 				<code>Transcript show: 'Hello, world!'.</code>
 				<p>Note that a Transcript window would need to be open in order to see the results of this example.</p>
@@ -644,23 +661,51 @@
 		<section class="main-section" id="Image_based_persistence">
 			<header>Image based persistence</header>
 			<article>
-				<p>Most popular programming systems separate static program code (in the form of class definitions, functions or procedures) from dynamic, or run time, program state (such as objects or other forms of program data). They load program code when a program starts, and any prior program state must be recreated explicitly from configuration files or other data sources. Any settings the program (and programmer) does not explicitly save must be set up again for each restart. A traditional program also loses much useful document information each time a program saves a file, quits, and reloads. This loses details such as undo history or cursor position. Image based systems don't force losing all that just because a computer is turned off, or an OS updates.
+				<p>Most popular programming systems separate static program code (in the form of class definitions,
+					functions or procedures) from dynamic, or run time, program state (such as objects or other forms of
+					program data). They load program code when a program starts, and any prior program state must be
+					recreated explicitly from configuration files or other data sources. Any settings the program (and
+					programmer) does not explicitly save must be set up again for each restart. A traditional program
+					also loses much useful document information each time a program saves a file, quits, and reloads.
+					This loses details such as undo history or cursor position. Image based systems don't force losing
+					all that just because a computer is turned off, or an OS updates.
 
-					Many Smalltalk systems, however, do not differentiate between program data (objects) and code (classes). In fact, classes are objects. Thus, most Smalltalk systems store the entire program state (including both Class and non-Class objects) in an image file. The image can then be loaded by the Smalltalk virtual machine to restore a Smalltalk-like system to a prior state.[30] This was inspired by FLEX, a language created by Alan Kay and described in his M.Sc. thesis.[31]
-					
-					Smalltalk images are similar to (restartable) core dumps and can provide the same functionality as core dumps, such as delayed or remote debugging with full access to the program state at the time of error. Other languages that model application code as a form of data, such as Lisp, often use image-based persistence as well. This method of persistence is powerful for rapid development because all the development information (e.g. parse trees of the program) is saved which facilitates debugging. However, it also has serious drawbacks as a true persistence mechanism. For one thing, developers may often want to hide implementation details and not make them available in a run time environment. For reasons of legality and maintenance, allowing anyone to modify a program at run time inevitably introduces complexity and potential errors that would not be possible with a compiled system that exposes no source code in the run time environment. Also, while the persistence mechanism is easy to use, it lacks the true persistence abilities needed for most multi-user systems. The most obvious is the ability to do transactions with multiple users accessing the same database in parallel.</p>
+					Many Smalltalk systems, however, do not differentiate between program data (objects) and code
+					(classes). In fact, classes are objects. Thus, most Smalltalk systems store the entire program state
+					(including both Class and non-Class objects) in an image file. The image can then be loaded by the
+					Smalltalk virtual machine to restore a Smalltalk-like system to a prior state.[30] This was inspired
+					by FLEX, a language created by Alan Kay and described in his M.Sc. thesis.[31]
+
+					Smalltalk images are similar to (restartable) core dumps and can provide the same functionality as
+					core dumps, such as delayed or remote debugging with full access to the program state at the time of
+					error. Other languages that model application code as a form of data, such as Lisp, often use
+					image-based persistence as well. This method of persistence is powerful for rapid development
+					because all the development information (e.g. parse trees of the program) is saved which facilitates
+					debugging. However, it also has serious drawbacks as a true persistence mechanism. For one thing,
+					developers may often want to hide implementation details and not make them available in a run time
+					environment. For reasons of legality and maintenance, allowing anyone to modify a program at run
+					time inevitably introduces complexity and potential errors that would not be possible with a
+					compiled system that exposes no source code in the run time environment. Also, while the persistence
+					mechanism is easy to use, it lacks the true persistence abilities needed for most multi-user
+					systems. The most obvious is the ability to do transactions with multiple users accessing the same
+					database in parallel.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Access_levels">
 			<header>Access levels</header>
 			<article>
-				<p>Everything in Smalltalk-80 is available for modification from within a running program. This means that, for example, the IDE can be changed in a running system without restarting it. In some implementations, the syntax of the language or the garbage collection implementation can also be changed on the fly. Even the statement true become: false is valid in Smalltalk, although executing it is not recommended.</p>
+				<p>Everything in Smalltalk-80 is available for modification from within a running program. This means
+					that, for example, the IDE can be changed in a running system without restarting it. In some
+					implementations, the syntax of the language or the garbage collection implementation can also be
+					changed on the fly. Even the statement true become: false is valid in Smalltalk, although executing
+					it is not recommended.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Just_in_time_compilation">
 			<header>Just in time compilation</header>
 			<article>
-				<p>Smalltalk programs are usually compiled to bytecode, which is then interpreted by a virtual machine or dynamically translated into machine-native code.</p>
+				<p>Smalltalk programs are usually compiled to bytecode, which is then interpreted by a virtual machine
+					or dynamically translated into machine-native code.</p>
 			</article>
 		</section>
 		<section class="main-section" id="Other_references">
@@ -681,7 +726,8 @@
 					<li>Object Arts, Dolphin Smalltalk</li>
 					<li>Object Connect, Smalltalk MT Smalltalk for Windows</li>
 					<li>Pharo Smalltalk, an open-source cross-platform language</li>
-					<li>PharoJS an open-source transpiler from Smalltalk to Javascript, extending the Pharo environment</li>
+					<li>PharoJS an open-source transpiler from Smalltalk to Javascript, extending the Pharo environment
+					</li>
 					<li>Pocket Smalltalk, runs on Palm Pilot</li>
 					<li>Squeak, open source Smalltalk</li>
 					<li>eToys, a visual programming system for learning</li>
