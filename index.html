@@ -11,23 +11,27 @@
 		rel="stylesheet">
 	<!-- Font-Awesome -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- External Css -->
+	<link rel="stylesheet" href="./assets/css/app.css">
+
 </head>
 
 <body>
-	<nav>
+	<nav id="navbar">
 		<header>SmallTalk Documentation</header>
-		<ul>
+		<ul style="list-style-type:none">
 			<li><a class="nav-link" href="#Introduction">Introduction</a></li>
-			<li><a class="nav-link" href="#History"></a>History</li>
-			<li><a class="nav-link" href="#OOP_Reference"></a>OOP Reference</li>
+			<li><a class="nav-link" href="#History">History</a></li>
+			<li><a class="nav-link" href="#OOP_reference">OOP reference</a></li>
 			<li><a class="nav-link" href="#Syntax">Syntax</a></li>
-			<li><a class="nav-link" href="#Control_Structures"></a>Control Structures</li>
-			<li><a class="nav-link" href="#Classes"></a>Classes</li>
-			<li><a class="nav-link" href="#Executed_Code">Executed Code</a></li>
-			<li><a class="nav-link" href="#Image_Based_Persistence">Image Based Persistence</a></li>
-			<li><a class="nav-link" href="#Access_Levels"></a>Access Levels</li>
-			<li><a class="nav-link" href="#JIT">Just In Time Compilation</a></li>
-			<li><a class="nav-link" href="#Other_Info">Other References</a></li>
+			<li><a class="nav-link" href="#Control_structures">Control structures</a></li>
+			<li><a class="nav-link" href="#Classes">Classes</a></li>
+			<li><a class="nav-link" href="#Executed_code">Executed Code</a></li>
+			<li><a class="nav-link" href="#Image_based_persistence">Image Based Persistence</a></li>
+			<li><a class="nav-link" href="#Access_levels">Access levels</a></li>
+			<li><a class="nav-link" href="#Just_in_time_compilation">Just in time compilation</a></li>
+			<li><a class="nav-link" href="#Other_references">Other references</a></li>
 		</ul>
 	</nav>
 	<main id="main-doc">
@@ -95,8 +99,8 @@
 					the standard language reference since 1998.</p>
 			</article>
 		</section>
-		<section class="main-section" id="OOP_Reference">
-			<header>Object Oriented Programming</header>
+		<section class="main-section" id="OOP_reference">
+			<header>OOP reference</header>
 			<article>
 				<p>As in other object-oriented languages, the central concept in Smalltalk-80 (but not in Smalltalk-72)
 					is that of
@@ -508,7 +512,7 @@
 					appropriate functor.</p>
 			</article>
 		</section>
-		<section class="main-section" id="Control Structures">
+		<section class="main-section" id="Control_structures">
 			<header>Control structures</header>
 			<article>
 				<p>Control structures do not have special syntax in Smalltalk. They are instead implemented as messages
@@ -627,8 +631,8 @@
 				</code>
 			</article>
 		</section>
-		<section class="main-section" id="Executed_Code">
-			<header>Executed Code</header>
+		<section class="main-section" id="Executed_code">
+			<header>Executed code</header>
 			<article>
 				<p>
 					The Hello world program is used by virtually all texts to new programming languages as the first program learned to show the most basic syntax and environment of the language. For Smalltalk, the program is extremely simple to write. The following code, the message "show:" is sent to the object "Transcript" with the String literal 'Hello, world!' as its argument. Invocation of the "show:" method causes the characters of its argument (the String literal 'Hello, world!') to be displayed in the transcript ("terminal") window.
@@ -637,8 +641,8 @@
 				<p>Note that a Transcript window would need to be open in order to see the results of this example.</p>
 			</article>
 		</section>
-		<section class="main-section" id="Image_Based_Persistence">
-			<header>Image-based Persistence</header>
+		<section class="main-section" id="Image_based_persistence">
+			<header>Image based persistence</header>
 			<article>
 				<p>Most popular programming systems separate static program code (in the form of class definitions, functions or procedures) from dynamic, or run time, program state (such as objects or other forms of program data). They load program code when a program starts, and any prior program state must be recreated explicitly from configuration files or other data sources. Any settings the program (and programmer) does not explicitly save must be set up again for each restart. A traditional program also loses much useful document information each time a program saves a file, quits, and reloads. This loses details such as undo history or cursor position. Image based systems don't force losing all that just because a computer is turned off, or an OS updates.
 
@@ -647,23 +651,23 @@
 					Smalltalk images are similar to (restartable) core dumps and can provide the same functionality as core dumps, such as delayed or remote debugging with full access to the program state at the time of error. Other languages that model application code as a form of data, such as Lisp, often use image-based persistence as well. This method of persistence is powerful for rapid development because all the development information (e.g. parse trees of the program) is saved which facilitates debugging. However, it also has serious drawbacks as a true persistence mechanism. For one thing, developers may often want to hide implementation details and not make them available in a run time environment. For reasons of legality and maintenance, allowing anyone to modify a program at run time inevitably introduces complexity and potential errors that would not be possible with a compiled system that exposes no source code in the run time environment. Also, while the persistence mechanism is easy to use, it lacks the true persistence abilities needed for most multi-user systems. The most obvious is the ability to do transactions with multiple users accessing the same database in parallel.</p>
 			</article>
 		</section>
-		<section class="main-section" id="Access_Levels">
-			<header>Levels of Access</header>
+		<section class="main-section" id="Access_levels">
+			<header>Access levels</header>
 			<article>
 				<p>Everything in Smalltalk-80 is available for modification from within a running program. This means that, for example, the IDE can be changed in a running system without restarting it. In some implementations, the syntax of the language or the garbage collection implementation can also be changed on the fly. Even the statement true become: false is valid in Smalltalk, although executing it is not recommended.</p>
 			</article>
 		</section>
-		<section class="main-section" id="JIT">
-			<header>Just-in-time Compilation</header>
+		<section class="main-section" id="Just_in_time_compilation">
+			<header>Just in time compilation</header>
 			<article>
 				<p>Smalltalk programs are usually compiled to bytecode, which is then interpreted by a virtual machine or dynamically translated into machine-native code.</p>
 			</article>
 		</section>
-		<section class="main-section" id="Other_Info">
-			<header>Other Information</header>
+		<section class="main-section" id="Other_references">
+			<header>Other references</header>
 			<article>
 				<h4>List of Implementations</h4>
-				<ul>
+				<ul style="list-style-type:none">
 					<li>Amber Smalltalk, runs on JavaScript via transpilation</li>
 					<li>Cincom has the following Smalltalk products: ObjectStudio, VisualWorks and WebVelocity.</li>
 					<li>Visual Smalltalk Enterprise, and family, including Smalltalk/V</li>
@@ -685,7 +689,7 @@
 				</ul>
 
 				<h4>See also || Look at also</h4>
-				<ul>
+				<ul style="list-style-type:none">
 					<li>Objective-C</li>
 					<li>GLASS (software bundle)</li>
 					<li>Distributed Data Management Architecture</li>
