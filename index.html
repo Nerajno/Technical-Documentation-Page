@@ -526,20 +526,16 @@
 					receiver is true.</p>
 				<p>The following code demonstrates this:</p>
 				<code>
-					<ul>
-						<li>result := a > b</li>
-						<li>ifTrue:[ 'greater' ]</li>
-						<li>ifFalse:[ 'less or equal' ]</li>
-					</ul>
+					result := a > b
+					ifTrue:[ 'greater' ]
+					ifFalse:[ 'less or equal' ]
 				</code>
 				<p>Blocks are also used to implement user-defined control structures, enumerators, visitors, exception
 					handling, pluggable behavior and many other patterns. For example:</p>
 				<code>
-					<ul>
-						<li> | aString vowels | </li>
-						<li>aString := 'This is a string'.</li>
-						<li>aString := 'This is a string'.</li>
-					</ul>
+						| aString vowels | 
+					aString := 'This is a string'.
+					aString := 'This is a string'.	
 				</code>
 				<p>In the last line, the string is sent the message select: with an argument that is a code block
 					literal. The code block literal will be used as a predicate function that should answer true if and
@@ -553,26 +549,21 @@
 					character is added to a string to be returned. Because the "select:" method is defined in the
 					abstract class Collection, it can also be used like this:</p>
 				<code>
-					<ul>
-						<li>| rectangles aPoint collisions |</li>
-						<li>rectangles := OrderedCollection</li>
-						<li> with: (Rectangle left: 0 right: 10 top: 100 bottom: 200)</li>
-						<li> with: (Rectangle left: 10 right: 10 top: 110 bottom: 210).</li>
-						<li>aPoint := Point x: 20 y: 20.</li>
-						<li>collisions := rectangles select: [:aRect | aRect containsPoint: aPoint].</li>
-					</ul>
+					| rectangles aPoint collisions |
+					rectangles := OrderedCollection
+					 with: (Rectangle left: 0 right: 10 top: 100 bottom: 200)
+					 with: (Rectangle left: 10 right: 10 top: 110 bottom: 210).
+					aPoint := Point x: 20 y: 20.
+					collisions := rectangles select: [:aRect | aRect containsPoint: aPoint].
 				</code>
 				<p>The exception handling mechanism uses blocks as handlers (similar to CLOS-style exception handling):
 				</p>
 				<code>
-					<ul>
-						<li>[</li>
-						<li>some operation</li>
-						<li>] on:Error do:[:ex |</li>
-						<li>handler-code</li>
-						<li>ex return</li>
-						<li>]</li>
-					</ul>
+					[ some operation
+					] on:Error do:[:ex |
+					handler-code
+					ex return
+						]
 				</code>
 				<p>The exception handler's "ex" argument provides access to the state of the suspended operation (stack
 					frame, line-number, receiver and arguments etc.) and is also used to control how the computation is
@@ -585,13 +576,11 @@
 			<article>
 				<p>This is a stock class definition: </p>
 				<code>
-					<ul>
-						<li>Object subclass: #MessagePublisher</li>
-						<li>instanceVariableNames: ''</li>
-						<li>classVariableNames: ''</li>
-						<li>poolDictionaries: ''</li>
-						<li>category: 'Smalltalk Examples'</li>
-					</ul>
+					Object subclass: #MessagePublisher
+					instanceVariableNames: ''
+					classVariableNames: ''
+					poolDictionaries: ''
+					category: 'Smalltalk Examples'
 				</code>
 				<p>Often, most of this definition will be filled in by the environment.
 					Notice that this is a message to the Object class to create a subclass called
@@ -604,24 +593,16 @@
 					The following code defines a method publish, and so defines what will happen when this
 					object receives the 'publish' message.</p>
 				<code>
-					<ul>
-						<li>
 							publish
-						</li>
-						<li>
 							Transcript show: 'Hello World!'
-						</li>
-					</ul>
 				</code>
 				<p>The following method demonstrates receiving multiple arguments and returning a value:</p>
 				<code>
-					<ul>
-						<li>quadMultiply: i1 and: i2</li>
-						<li>"This method multiplies the given numbers by each other and the result by 4."</li>
-						<li>| mul |</li>
-						<li>mul := i1 * i2.</li>
-						<li> ^mul * 4</li>
-					</ul>
+						quadMultiply: i1 and: i2
+						"This method multiplies the given numbers by each other and the result by 4."
+						| mul |
+						mul := i1 * i2.
+						 ^mul * 4
 				</code>
 				<p>The method's name is <code>#quadMultiply:and:</code>. The return value is specified with the ^
 					operator.
