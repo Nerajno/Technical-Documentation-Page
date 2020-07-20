@@ -12,8 +12,7 @@ Created to fullfill the requirements freeCodeCamp Responsive Web Cert.
 ### Hosted on : https://nerajno.github.io/Technical-Documentation-Page/
 
 ### Screenshot of the WebPage Running
-https://github.com/Nerajno/Technical-Documentation-Page/blob/master/assets/media/techDoc.png
-![Screenshot of the Finished Product](/master/assets/media/techDoc.png)
+![Screenshot of the Finished Product](https://github.com/Nerajno/Technical-Documentation-Page/blob/master/assets/media/techDoc.png)
 ## Todo
 
 - [x] fix code samples || Not Needed
