@@ -9,14 +9,14 @@ Created to fullfill the requirements freeCodeCamp Responsive Web Cert.
 * FontAwesome
 * Research via Wikipedia
 
-### Hosted on : 
- 
+### Hosted on : https://nerajno.github.io/Technical-Documentation-Page/
 
-Screenshot of the WebPage Running
-
+### Screenshot of the WebPage Running
+https://github.com/Nerajno/Technical-Documentation-Page/blob/master/assets/media/techDoc.png
+![Screenshot of the Finished Product](/master/assets/media/techDoc.png)
 ## Todo
 
-- [ ] fix code samples
-- [ ] fix, insert and check all links for functionality
-- [ ] Insert images where neccesary.
+- [x] fix code samples || Not Needed
+- [x] fix, insert and check all links for functionality || Not Needed
+- [x] Insert Screenshot
 
