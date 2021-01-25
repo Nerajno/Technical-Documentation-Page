@@ -26,3 +26,7 @@ Created to fullfill the requirements freeCodeCamp Responsive Web Cert.
 - [ ] Remove padding left from code.
 - [ ] Make it mobile compatible.
 - [ ] Add a Bring to top button. 
+
+
+Notes section
+https://codepen.io/macgirl212/pen/eYdbXRP
