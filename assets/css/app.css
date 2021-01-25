@@ -66,6 +66,8 @@ section article {
   color: #4d4e53;
   margin: 15px;
   font-size: 0.96em;
+  height: 80%;
+  width: 80%;
 }
 
 section li {
@@ -123,7 +125,7 @@ code {
 
   code {
     margin-left: -20px;
-    width: 100%;
+    width: 80%;
     padding: 15px;
     padding-left: 10px;
     padding-right: 45px;
