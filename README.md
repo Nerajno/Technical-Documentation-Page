@@ -20,10 +20,10 @@ Created to fullfill the requirements freeCodeCamp Responsive Web Cert.
 - [x] Insert Screenshot
 
 ## Todo Version #2
-- [ ] Click on each item on the navbar and section either fills the entire screen with the selected content only.
-- [ ] Double check the content.
-- [ ] Add all the links to open safely.
-- [ ] Remove padding left from code.
+- [ ] Click on each item on the navbar and section either fills the entire screen with the selected content only (Centered).
+- [ ] Double check the content vs source.
+- [ ] Add all the links to open safely ( in another tab).
+- [ ] Remove padding left from code (refactr to make it mobile compatible).
 - [ ] Make it mobile compatible.
 - [ ] Add a Bring to top button. 
 
