@@ -70,6 +70,11 @@ section article {
   width: 80%;
 }
 
+
+.main-section{
+  min-height: 100vh;
+}
+
 section li {
   margin: 15px 0px 0px 20px;
 }

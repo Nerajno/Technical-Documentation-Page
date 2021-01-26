@@ -191,15 +191,15 @@
 					to a code snippet
 					by Ralph Johnson, demonstrating all the basic standard syntactic elements of methods:</p>
 				<code>
-				exampleWithNumber: x
-				| y |
-				true & false not & (nil isNil) ifFalse: [self halt].
-				y := self size + super size.
-				#($a #a "a" 1 1.0)
-				do: [ :each |
-				Transcript show: (each class name);
-				show: ' '].
-				^x < y 
+	exampleWithNumber: x
+	| y |
+	true & false not & (nil isNil) ifFalse: [self halt].
+	y := self size + super size.
+	#($a #a "a" 1 1.0)
+	do: [ :each |
+	Transcript show: (each class name);
+	show: ' '].
+	^x < y 
 				</code> 
 					<strong>Literals</strong>
 						<p>The following examples illustrate the most common objects which can be written as literal
